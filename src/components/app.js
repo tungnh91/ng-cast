@@ -6,7 +6,7 @@ angular.module('video-player')
     },
     controllerAs: 'ctrl',
     bindToController: true,
-    controller: function($scope, $window) {
+    controller: function($scope, $window, youTube) {
       this.exampleVideoData = $window.exampleVideoData;
       this.video = $window.exampleVideoData[0];
       this.clickHandler = function() {
