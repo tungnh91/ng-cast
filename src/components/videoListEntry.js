@@ -4,8 +4,8 @@ angular.module('video-player')
     scope: {
       video: '<'
     },
-    // controllerAs: 'props',
-    // bindToController: true,
+    controllerAs: 'ctrl',
+    bindToController: true,
     controller: function($scope) {
       console.log('videoListEntry scope:', $scope);
     },

@@ -3,9 +3,10 @@ angular.module('video-player')
 
   return {
     scope: {
-      videos: '<'
+      videos: '<',
+      onClick: '<'
     },
-    controllerAs: 'props',
+    controllerAs: 'ctrl',
     bindToController: true,
     controller: function($scope) {
       console.log('videoList $scope:', $scope);

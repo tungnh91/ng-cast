@@ -1,21 +1,26 @@
 angular.module('video-player')
-
 .controller('videosController', function($scope, $window) {
   $scope.exampleVideoData = $window.exampleVideoData;
+  console.log('hello', $scope);
+  $scope.clickHandler = function() {
+
+  };
+  $scope.selectVideo = function() {
+
+  };
   console.log('video-player module controller scope: ', $scope);
 })
 
 .directive('app', function() {
   return {
     scope: {
-      exampleVideoData: '<'
+      exampleVideoData: '<',
+      selectVideo: '<'
     },
-    controllerAs: 'props',
+    controllerAs: 'ctrl',
     bindToController: true,
     controller: function($scope, $window) {
-      // $scope.exampleVideoData = $window.exampleVideoData;
-      // console.log('app controller scope: ', $scope);
-      // console.log('app controller this:', this);
+      console.log('this is the app scope', $scope);
     },
     templateUrl: 'src/templates/app.html'
   };
