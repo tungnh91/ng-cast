@@ -1,6 +1,7 @@
 angular.module('video-player')
 .controller('videosController', function($scope, $window) {
   $scope.exampleVideoData = $window.exampleVideoData;
+  $scope.video = $scope.exampleVideoData[0];
   console.log('hello', $scope);
   $scope.clickHandler = function() {
 
