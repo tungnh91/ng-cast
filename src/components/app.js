@@ -21,6 +21,7 @@ angular.module('video-player')
     controllerAs: 'ctrl',
     bindToController: true,
     controller: function($scope, $window) {
+      
       console.log('this is the app scope', $scope);
     },
     templateUrl: 'src/templates/app.html'
