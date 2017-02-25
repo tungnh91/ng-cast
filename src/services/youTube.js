@@ -1,6 +1,6 @@
 angular.module('video-player')
 .service('youTube', function($http) {
-  this.search = function(newQuery) {
+  this.search = function(newQuery, callback) {
     var request = $http({
       method: 'GET',
       url: 'https://www.googleapis.com/youtube/v3/search',
@@ -10,10 +10,12 @@ angular.module('video-player')
         key: window.YOUTUBE_API_KEY,
         maxResults: newQuery.max || 5,
         q: newQuery.query,
+        part: 'snippet'
       }
-    }).success(function(data, status) {
+    }).then(function successCallback(data) {
       console.log('AJAX data:', data);
-    }).error(function(data, status) {
+      // callback(data);
+    }, function errorCallback(response) {
 
     });
   };
