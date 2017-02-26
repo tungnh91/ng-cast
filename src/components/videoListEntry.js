@@ -2,7 +2,8 @@ angular.module('video-player')
 .directive('videoListEntry', function() {
   return {
     scope: {
-      video: '<'
+      video: '<',
+      onClick: '<'
     },
     controllerAs: 'ctrl',
     bindToController: true,

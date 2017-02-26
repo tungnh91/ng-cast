@@ -7,15 +7,15 @@ angular.module('video-player')
     controllerAs: 'ctrl',
     bindToController: true,
     controller: function($scope, $window, youTube) {
-      var options = {query: 'dogs', max: 5};
-      youTube.search(options, function(){});
       this.videos = $window.exampleVideoData;
       this.currentVideo = $window.exampleVideoData[0];
-      this.clickHandler = function() {
-
-      };
-      this.selectVideo = function() {
-
+      var options = {query: 'dogs', max: 5};
+      youTube.search(options, (movies) => {
+        this.videos = movies;
+        this.currentVideo = movies[0];
+      });
+      this.selectVideo = (movie) => {
+        this.currentVideo = movie;
       };
       this.searchResults = function() {
 
