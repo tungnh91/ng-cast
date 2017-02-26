@@ -8,17 +8,16 @@ angular.module('video-player')
         type: 'video',
         videoEmbeddable: true,
         key: window.YOUTUBE_API_KEY,
-        maxResults: newQuery.max || 5,
-        q: newQuery.query,
+        maxResults: 5,
+        q: newQuery,
         part: 'snippet'
       }
-    }).then(function successCallback(data) {
+    }).then(function successCallback({data}) {
       console.log('AJAX data:', data);
+      callback(data.items);
       // callback(data);
     }, function errorCallback(response) {
 
     });
   };
-
-  return {search: this.search};
 });

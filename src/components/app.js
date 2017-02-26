@@ -9,17 +9,17 @@ angular.module('video-player')
     controller: function($scope, $window, youTube) {
       this.videos = $window.exampleVideoData;
       this.currentVideo = $window.exampleVideoData[0];
-      var options = {query: 'dogs', max: 5};
-      youTube.search(options, (movies) => {
-        this.videos = movies;
-        this.currentVideo = movies[0];
-      });
+
+      this.searchService = youTube;
       this.selectVideo = (movie) => {
         this.currentVideo = movie;
       };
-      this.searchResults = function() {
-
+      
+      this.searchResults = (data) => {
+        this.videos = data;
+        this.currentVideo = data[0];
       };
+      youTube.search('dogs', this.searchResults);
       console.log('this is the app this', this);
     },
     templateUrl: 'src/templates/app.html'
