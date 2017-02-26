@@ -15,7 +15,30 @@ angular.module('video-player')
     }).then(function successCallback({data}) {
       console.log('AJAX data:', data);
       callback(data.items);
-      // callback(data);
+
+      var getViewCount = function(id) {
+        $http({
+          method: 'GET',
+          url: 'https://www.googleapis.com/youtube/v3/videos',
+          params: {
+            key: window.YOUTUBE_API_KEY,
+            id: id,
+            part: 'statistics'
+          }
+        }).then(function success({data}) {
+          console.log('statistics data', data);
+        }, function error(response) {
+          console.log(response);
+        });
+      };
+      for(var i=0; i < 5; i++){
+        getViewCount(data.items[i].id.videoId);
+        
+      }
+      
+
+
+
     }, function errorCallback(response) {
 
     });
