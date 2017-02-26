@@ -19,7 +19,7 @@ angular.module('video-player')
         this.videos = data;
         this.currentVideo = data[0];
       };
-      youTube.search('dogs', this.searchResults);
+      youTube.search('Snoop Dogg', this.searchResults);
       console.log('this is the app this', this);
     },
     templateUrl: 'src/templates/app.html'
